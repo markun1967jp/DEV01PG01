@@ -105,8 +105,11 @@ namespace DEV01PG01
             var Lines13 = Lines12.Select(line => line.Replace("having ", "HAVING ")).ToArray();
             var Lines14 = Lines13.Select(line => line.Replace("from ", "FROM ")).ToArray();
             var Lines15 = Lines14.Select(line => line.Replace("as ", "AS ")).ToArray();
+            var Lines16 = Lines15.Select(line => line.Replace("LEFT OUTER JOIN", "LEFT JOIN")).ToArray();
+            var Lines17 = Lines16.Select(line => line.Replace("in ", "IN ")).ToArray();
+            var LinesLast = Lines17.Select(line => line.Replace("Group by", "GROUP BY")).ToArray();
 
-            var replacedLines = Lines15;
+            var replacedLines = LinesLast;
 
             // 出力TextBoxに置換後の行を設定
             textBoxOutput.Lines = replacedLines;
