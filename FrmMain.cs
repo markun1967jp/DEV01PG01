@@ -66,5 +66,22 @@ namespace DEV01PG01
             txtFrom.Text = "";
             txtTo.Text = "";
         }
+
+        private void sQL‹å‘å•¶š‰»ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsCnv.Fn_CapitalLetter(txtFrom, txtTo);
+
+            MessageBox.Show("Š®—¹I", "SQL‹åA‘å•¶š‰»", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnSelAllUpper_Click(object sender, EventArgs e)
+        {
+            txtFrom.SelectAll();
+        }
+
+        private void btnSelAllBottom_Click(object sender, EventArgs e)
+        {
+            txtTo.SelectAll();
+        }
     }
 }

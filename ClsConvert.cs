@@ -57,5 +57,30 @@ namespace DEV01PG01
             textBoxOutput.Lines = trimmedLines;
         }
 
+        public void Fn_CapitalLetter(TextBox textBoxInput, TextBox textBoxOutput)
+        {
+            // 入力TextBoxのテキストを行単位で取得
+            string[] lines = textBoxInput.Lines;
+
+            // 置換
+            var Lines1 = lines.Select(line => line.Replace("select ", "SELECT ")).ToArray();
+            var Lines2 = Lines1.Select(line => line.Replace(" or ", " OR ")).ToArray();
+            var Lines3 = Lines2.Select(line => line.Replace(" and ", " AND ")).ToArray();
+            var Lines4 = Lines3.Select(line => line.Replace(" group by ", " GROUP BY ")).ToArray();
+            var Lines5 = Lines4.Select(line => line.Replace(" order by ", " ORDER BY ")).ToArray();
+            var Lines6 = Lines5.Select(line => line.Replace(" sum(", " SUM(")).ToArray();
+            var Lines7 = Lines6.Select(line => line.Replace(" left join ", " LEFT JOIN ")).ToArray();
+            var Lines8 = Lines7.Select(line => line.Replace(" left outer join ", " LEFT JOIN ")).ToArray();
+            var Lines9 = Lines8.Select(line => line.Replace(" max(", " MAX(")).ToArray();
+            var Lines10 = Lines9.Select(line => line.Replace(" min", " MIN(")).ToArray();
+            var Lines11 = Lines10.Select(line => line.Replace(" where ", " WHERE ")).ToArray();
+            var Lines12 = Lines11.Select(line => line.Replace(" union all ", " UNION ALL ")).ToArray();
+
+            var replacedLines = Lines2;
+
+            // 出力TextBoxに置換後の行を設定
+            textBoxOutput.Lines = replacedLines;
+        }
+
     }
 }

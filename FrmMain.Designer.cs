@@ -33,6 +33,7 @@
             sQL関連ToolStripMenuItem = new ToolStripMenuItem();
             sQLVSソース化ToolStripMenuItem = new ToolStripMenuItem();
             先頭1スペースToolStripMenuItem = new ToolStripMenuItem();
+            sQL句大文字化ToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
             btnTran = new Button();
             txtTranTo = new TextBox();
@@ -43,10 +44,12 @@
             toolStrip1 = new ToolStrip();
             btnClose = new ToolStripButton();
             btnResult = new ToolStripButton();
+            btnCLR = new ToolStripButton();
+            btnSelAllUpper = new ToolStripButton();
+            btnSelAllBottom = new ToolStripButton();
             splitContainer1 = new SplitContainer();
             txtFrom = new TextBox();
             txtTo = new TextBox();
-            btnCLR = new ToolStripButton();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -67,7 +70,7 @@
             // 
             // sQL関連ToolStripMenuItem
             // 
-            sQL関連ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sQLVSソース化ToolStripMenuItem, 先頭1スペースToolStripMenuItem });
+            sQL関連ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sQLVSソース化ToolStripMenuItem, 先頭1スペースToolStripMenuItem, sQL句大文字化ToolStripMenuItem });
             sQL関連ToolStripMenuItem.Name = "sQL関連ToolStripMenuItem";
             sQL関連ToolStripMenuItem.Size = new Size(64, 20);
             sQL関連ToolStripMenuItem.Text = "SQL関連";
@@ -75,16 +78,23 @@
             // sQLVSソース化ToolStripMenuItem
             // 
             sQLVSソース化ToolStripMenuItem.Name = "sQLVSソース化ToolStripMenuItem";
-            sQLVSソース化ToolStripMenuItem.Size = new Size(173, 22);
+            sQLVSソース化ToolStripMenuItem.Size = new Size(177, 22);
             sQLVSソース化ToolStripMenuItem.Text = "01-SQL_VS_ソース化";
             sQLVSソース化ToolStripMenuItem.Click += SQLVSソース化ToolStripMenuItem_Click;
             // 
             // 先頭1スペースToolStripMenuItem
             // 
             先頭1スペースToolStripMenuItem.Name = "先頭1スペースToolStripMenuItem";
-            先頭1スペースToolStripMenuItem.Size = new Size(173, 22);
+            先頭1スペースToolStripMenuItem.Size = new Size(177, 22);
             先頭1スペースToolStripMenuItem.Text = "02-先頭1スペース";
             先頭1スペースToolStripMenuItem.Click += 先頭1スペースToolStripMenuItem_Click;
+            // 
+            // sQL句大文字化ToolStripMenuItem
+            // 
+            sQL句大文字化ToolStripMenuItem.Name = "sQL句大文字化ToolStripMenuItem";
+            sQL句大文字化ToolStripMenuItem.Size = new Size(177, 22);
+            sQL句大文字化ToolStripMenuItem.Text = "03-SQL句_大文字化";
+            sQL句大文字化ToolStripMenuItem.Click += sQL句大文字化ToolStripMenuItem_Click;
             // 
             // panel1
             // 
@@ -160,7 +170,7 @@
             // toolStrip1
             // 
             toolStrip1.Dock = DockStyle.Bottom;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnClose, btnResult, btnCLR });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnClose, btnResult, btnCLR, btnSelAllUpper, btnSelAllBottom });
             toolStrip1.Location = new Point(0, 515);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);
@@ -197,6 +207,41 @@
             btnResult.Size = new Size(72, 25);
             btnResult.Text = "結果(↑)";
             btnResult.Click += BtnResult_Click;
+            // 
+            // btnCLR
+            // 
+            btnCLR.AutoSize = false;
+            btnCLR.BackColor = Color.Cyan;
+            btnCLR.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnCLR.Font = new Font("BIZ UDゴシック", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btnCLR.Image = (Image)resources.GetObject("btnCLR.Image");
+            btnCLR.ImageTransparentColor = Color.Magenta;
+            btnCLR.Name = "btnCLR";
+            btnCLR.Size = new Size(70, 24);
+            btnCLR.Text = "クリア";
+            btnCLR.Click += btnCLR_Click;
+            // 
+            // btnSelAllUpper
+            // 
+            btnSelAllUpper.BackColor = Color.FromArgb(192, 192, 255);
+            btnSelAllUpper.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnSelAllUpper.Image = (Image)resources.GetObject("btnSelAllUpper.Image");
+            btnSelAllUpper.ImageTransparentColor = Color.Magenta;
+            btnSelAllUpper.Name = "btnSelAllUpper";
+            btnSelAllUpper.Size = new Size(59, 24);
+            btnSelAllUpper.Text = "↑全選択";
+            btnSelAllUpper.Click += btnSelAllUpper_Click;
+            // 
+            // btnSelAllBottom
+            // 
+            btnSelAllBottom.BackColor = Color.FromArgb(192, 255, 255);
+            btnSelAllBottom.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnSelAllBottom.Image = (Image)resources.GetObject("btnSelAllBottom.Image");
+            btnSelAllBottom.ImageTransparentColor = Color.Magenta;
+            btnSelAllBottom.Name = "btnSelAllBottom";
+            btnSelAllBottom.Size = new Size(59, 24);
+            btnSelAllBottom.Text = "↓全選択";
+            btnSelAllBottom.Click += btnSelAllBottom_Click;
             // 
             // splitContainer1
             // 
@@ -237,19 +282,6 @@
             txtTo.ScrollBars = ScrollBars.Both;
             txtTo.Size = new Size(800, 223);
             txtTo.TabIndex = 1;
-            // 
-            // btnCLR
-            // 
-            btnCLR.AutoSize = false;
-            btnCLR.BackColor = Color.Cyan;
-            btnCLR.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnCLR.Font = new Font("BIZ UDゴシック", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btnCLR.Image = (Image)resources.GetObject("btnCLR.Image");
-            btnCLR.ImageTransparentColor = Color.Magenta;
-            btnCLR.Name = "btnCLR";
-            btnCLR.Size = new Size(70, 24);
-            btnCLR.Text = "クリア";
-            btnCLR.Click += btnCLR_Click;
             // 
             // FrmMain
             // 
@@ -303,5 +335,8 @@
         private ToolStripMenuItem 先頭1スペースToolStripMenuItem;
         private ToolStripButton btnResult;
         private ToolStripButton btnCLR;
+        private ToolStripMenuItem sQL句大文字化ToolStripMenuItem;
+        private ToolStripButton btnSelAllUpper;
+        private ToolStripButton btnSelAllBottom;
     }
 }
