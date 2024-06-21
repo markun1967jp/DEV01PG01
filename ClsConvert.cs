@@ -104,8 +104,9 @@ namespace DEV01PG01
             var Lines12 = Lines11.Select(line => line.Replace("union all", "UNION ALL")).ToArray();
             var Lines13 = Lines12.Select(line => line.Replace("having ", "HAVING ")).ToArray();
             var Lines14 = Lines13.Select(line => line.Replace("from ", "FROM ")).ToArray();
+            var Lines15 = Lines14.Select(line => line.Replace("as ", "AS ")).ToArray();
 
-            var replacedLines = Lines14;
+            var replacedLines = Lines15;
 
             // 出力TextBoxに置換後の行を設定
             textBoxOutput.Lines = replacedLines;
