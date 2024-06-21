@@ -76,11 +76,13 @@ namespace DEV01PG01
 
         private void btnSelAllUpper_Click(object sender, EventArgs e)
         {
+            txtFrom.Focus();
             txtFrom.SelectAll();
         }
 
         private void btnSelAllBottom_Click(object sender, EventArgs e)
         {
+            txtTo.Focus();
             txtTo.SelectAll();
         }
     }
