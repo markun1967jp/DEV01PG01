@@ -85,5 +85,12 @@ namespace DEV01PG01
             txtTo.Focus();
             txtTo.SelectAll();
         }
+
+        private void 末尾ORANDONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsCnv.Fn_CheckEndLetter(txtFrom, txtTo);
+
+            MessageBox.Show("完了！", "SQL句、末尾チェック", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

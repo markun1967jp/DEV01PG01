@@ -50,6 +50,7 @@
             splitContainer1 = new SplitContainer();
             txtFrom = new TextBox();
             txtTo = new TextBox();
+            末尾ORANDONToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -70,7 +71,7 @@
             // 
             // sQL関連ToolStripMenuItem
             // 
-            sQL関連ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sQLVSソース化ToolStripMenuItem, 先頭1スペースToolStripMenuItem, sQL句大文字化ToolStripMenuItem });
+            sQL関連ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sQLVSソース化ToolStripMenuItem, 先頭1スペースToolStripMenuItem, sQL句大文字化ToolStripMenuItem, 末尾ORANDONToolStripMenuItem });
             sQL関連ToolStripMenuItem.Name = "sQL関連ToolStripMenuItem";
             sQL関連ToolStripMenuItem.Size = new Size(64, 20);
             sQL関連ToolStripMenuItem.Text = "SQL関連";
@@ -78,21 +79,21 @@
             // sQLVSソース化ToolStripMenuItem
             // 
             sQLVSソース化ToolStripMenuItem.Name = "sQLVSソース化ToolStripMenuItem";
-            sQLVSソース化ToolStripMenuItem.Size = new Size(177, 22);
+            sQLVSソース化ToolStripMenuItem.Size = new Size(189, 22);
             sQLVSソース化ToolStripMenuItem.Text = "01-SQL_VS_ソース化";
             sQLVSソース化ToolStripMenuItem.Click += SQLVSソース化ToolStripMenuItem_Click;
             // 
             // 先頭1スペースToolStripMenuItem
             // 
             先頭1スペースToolStripMenuItem.Name = "先頭1スペースToolStripMenuItem";
-            先頭1スペースToolStripMenuItem.Size = new Size(177, 22);
+            先頭1スペースToolStripMenuItem.Size = new Size(189, 22);
             先頭1スペースToolStripMenuItem.Text = "02-先頭1スペース";
             先頭1スペースToolStripMenuItem.Click += 先頭1スペースToolStripMenuItem_Click;
             // 
             // sQL句大文字化ToolStripMenuItem
             // 
             sQL句大文字化ToolStripMenuItem.Name = "sQL句大文字化ToolStripMenuItem";
-            sQL句大文字化ToolStripMenuItem.Size = new Size(177, 22);
+            sQL句大文字化ToolStripMenuItem.Size = new Size(189, 22);
             sQL句大文字化ToolStripMenuItem.Text = "03-SQL句_大文字化";
             sQL句大文字化ToolStripMenuItem.Click += sQL句大文字化ToolStripMenuItem_Click;
             // 
@@ -283,6 +284,13 @@
             txtTo.Size = new Size(800, 223);
             txtTo.TabIndex = 1;
             // 
+            // 末尾ORANDONToolStripMenuItem
+            // 
+            末尾ORANDONToolStripMenuItem.Name = "末尾ORANDONToolStripMenuItem";
+            末尾ORANDONToolStripMenuItem.Size = new Size(189, 22);
+            末尾ORANDONToolStripMenuItem.Text = "04-末尾_OR_AND_ON";
+            末尾ORANDONToolStripMenuItem.Click += 末尾ORANDONToolStripMenuItem_Click;
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -338,5 +346,6 @@
         private ToolStripMenuItem sQL句大文字化ToolStripMenuItem;
         private ToolStripButton btnSelAllUpper;
         private ToolStripButton btnSelAllBottom;
+        private ToolStripMenuItem 末尾ORANDONToolStripMenuItem;
     }
 }

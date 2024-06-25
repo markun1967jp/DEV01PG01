@@ -120,5 +120,50 @@ namespace DEV01PG01
             textBoxOutput.Lines = replacedLines;
         }
 
+
+        /// <summary>
+        /// 前の行のAND ORを次の行の先頭に移動する。
+        /// </summary>
+        /// <param name="textBoxOutput"></param>
+        public void Fn_CheckEndLetter(TextBox textBoxInput,TextBox textBoxOutput)
+        {
+            // 現在のテキストを行ごとに分割
+            string[] lines = textBoxInput.Text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+
+            string sADD = "";
+            // 各行を加工
+            for (int i = 0; i < lines.Length; i++)
+            {
+                lines[i] = " " + lines[i].Trim();
+                if (sADD != "")
+                {
+                    lines[i] = sADD + lines[i];
+                    sADD = "";
+                }
+
+                string thisLine = lines[i];
+                
+                if (thisLine.Length >= 4 && thisLine.Substring(thisLine.Length - 4) == " AND")
+                {
+                    lines[i] = thisLine.Substring(0, thisLine.Length - 4);
+                    sADD = " AND";
+                }
+                if (thisLine.Length >= 4 && thisLine.Substring(thisLine.Length - 3) == " OR")
+                {
+                    lines[i] = thisLine.Substring(0, thisLine.Length - 3);
+                    sADD = " OR";
+                }
+                if (thisLine.Length >= 4 && thisLine.Substring(thisLine.Length - 3) == " ON")
+                {
+                    lines[i] = thisLine.Substring(0, thisLine.Length - 3);
+                    sADD = " ON";
+                }
+            }
+
+            // 行を再度結合してTextBoxに設定
+            textBoxOutput.Text = string.Join(Environment.NewLine, lines);
+
+        }
+
     }
 }
