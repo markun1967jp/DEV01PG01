@@ -92,5 +92,12 @@ namespace DEV01PG01
 
             MessageBox.Show("完了！", "SQL句、末尾チェック", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void 改行コード除去ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsCnv.RemoveCarrigeReturn(txtFrom, txtTo);
+
+            MessageBox.Show("完了！", "S改行コード、除去", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

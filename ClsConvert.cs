@@ -165,5 +165,12 @@ namespace DEV01PG01
 
         }
 
+        public void RemoveCarrigeReturn(TextBox textBoxInput, TextBox textBoxOutput)
+        {
+            string inputText = textBoxInput.Text;
+            string outputText = inputText.Replace("\r\n", "").Replace("\n", "").Replace("\r", "");
+            textBoxOutput.Text = outputText;
+        }
+
     }
 }

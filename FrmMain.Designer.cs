@@ -34,6 +34,7 @@
             sQLVSソース化ToolStripMenuItem = new ToolStripMenuItem();
             先頭1スペースToolStripMenuItem = new ToolStripMenuItem();
             sQL句大文字化ToolStripMenuItem = new ToolStripMenuItem();
+            末尾ORANDONToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
             btnTran = new Button();
             txtTranTo = new TextBox();
@@ -50,7 +51,7 @@
             splitContainer1 = new SplitContainer();
             txtFrom = new TextBox();
             txtTo = new TextBox();
-            末尾ORANDONToolStripMenuItem = new ToolStripMenuItem();
+            改行コード除去ToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -71,7 +72,7 @@
             // 
             // sQL関連ToolStripMenuItem
             // 
-            sQL関連ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sQLVSソース化ToolStripMenuItem, 先頭1スペースToolStripMenuItem, sQL句大文字化ToolStripMenuItem, 末尾ORANDONToolStripMenuItem });
+            sQL関連ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sQLVSソース化ToolStripMenuItem, 先頭1スペースToolStripMenuItem, sQL句大文字化ToolStripMenuItem, 末尾ORANDONToolStripMenuItem, 改行コード除去ToolStripMenuItem });
             sQL関連ToolStripMenuItem.Name = "sQL関連ToolStripMenuItem";
             sQL関連ToolStripMenuItem.Size = new Size(64, 20);
             sQL関連ToolStripMenuItem.Text = "SQL関連";
@@ -96,6 +97,13 @@
             sQL句大文字化ToolStripMenuItem.Size = new Size(189, 22);
             sQL句大文字化ToolStripMenuItem.Text = "03-SQL句_大文字化";
             sQL句大文字化ToolStripMenuItem.Click += sQL句大文字化ToolStripMenuItem_Click;
+            // 
+            // 末尾ORANDONToolStripMenuItem
+            // 
+            末尾ORANDONToolStripMenuItem.Name = "末尾ORANDONToolStripMenuItem";
+            末尾ORANDONToolStripMenuItem.Size = new Size(189, 22);
+            末尾ORANDONToolStripMenuItem.Text = "04-末尾_OR_AND_ON";
+            末尾ORANDONToolStripMenuItem.Click += 末尾ORANDONToolStripMenuItem_Click;
             // 
             // panel1
             // 
@@ -284,12 +292,12 @@
             txtTo.Size = new Size(800, 223);
             txtTo.TabIndex = 1;
             // 
-            // 末尾ORANDONToolStripMenuItem
+            // 改行コード除去ToolStripMenuItem
             // 
-            末尾ORANDONToolStripMenuItem.Name = "末尾ORANDONToolStripMenuItem";
-            末尾ORANDONToolStripMenuItem.Size = new Size(189, 22);
-            末尾ORANDONToolStripMenuItem.Text = "04-末尾_OR_AND_ON";
-            末尾ORANDONToolStripMenuItem.Click += 末尾ORANDONToolStripMenuItem_Click;
+            改行コード除去ToolStripMenuItem.Name = "改行コード除去ToolStripMenuItem";
+            改行コード除去ToolStripMenuItem.Size = new Size(189, 22);
+            改行コード除去ToolStripMenuItem.Text = "05.改行コード、除去";
+            改行コード除去ToolStripMenuItem.Click += 改行コード除去ToolStripMenuItem_Click;
             // 
             // FrmMain
             // 
@@ -347,5 +355,6 @@
         private ToolStripButton btnSelAllUpper;
         private ToolStripButton btnSelAllBottom;
         private ToolStripMenuItem 末尾ORANDONToolStripMenuItem;
+        private ToolStripMenuItem 改行コード除去ToolStripMenuItem;
     }
 }
