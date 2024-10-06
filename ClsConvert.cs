@@ -172,5 +172,22 @@ namespace DEV01PG01
             textBoxOutput.Text = outputText;
         }
 
+        /// --------------------------------------------------------------------------------
+        /// <summary>
+        /// 仕切り線の追加
+        /// </summary>
+        /// <param name="textBoxInput"></param>
+        /// <param name="textBoxOutput"></param>
+        /// --------------------------------------------------------------------------------
+        public void SeparateLine(TextBox textBoxInput, TextBox textBoxOutput)
+        {
+            string inputText = textBoxInput.Text;
+            string outputText = "        /// --------------------------------------------------------------------------------" + Environment.NewLine;
+            outputText += textBoxInput.Text + Environment.NewLine; ;
+            outputText += "        /// --------------------------------------------------------------------------------";
+
+            textBoxOutput.Text = outputText;
+        }
+
     }
 }

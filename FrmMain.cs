@@ -99,5 +99,11 @@ namespace DEV01PG01
 
             MessageBox.Show("完了！", "S改行コード、除去", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void mn仕切り線_Click(object sender, EventArgs e)
+        {
+            clsCnv.SeparateLine(txtFrom, txtTo);
+            MessageBox.Show("完了！", "関数、仕切り線追加", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
