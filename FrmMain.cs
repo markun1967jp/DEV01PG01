@@ -1,4 +1,4 @@
-namespace DEV01PG01
+ï»¿namespace DEV01PG01
 {
     public partial class FrmMain : Form
     {
@@ -12,6 +12,11 @@ namespace DEV01PG01
         private void FrmMain_Load(object sender, EventArgs e)
         {
 
+            // ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³å–å¾—
+            System.Diagnostics.FileVersionInfo sVer = System.Diagnostics.FileVersionInfo.GetVersionInfo(
+                    System.Reflection.Assembly.GetExecutingAssembly().Location);
+            this.Text += "(v" + sVer.FileVersion + ")";
+
         }
 
         private void ClrTextTo()
@@ -20,7 +25,7 @@ namespace DEV01PG01
         }
 
         /// <summary>
-        /// ’uŠ·‚·‚éB
+        /// ç½®æ›ã™ã‚‹ã€‚
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -28,19 +33,19 @@ namespace DEV01PG01
         {
             clsCnv.Fn_Replace(txtFrom, txtTo, txtTranFrom.Text, txtTranTo.Text);
 
-            MessageBox.Show("Š®—¹I", "’uŠ·", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("å®Œäº†ï¼", "ç½®æ›", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
-        /// sSQL += " xxxx "; ‚ÌŒ`‚É‚·‚éB
+        /// sSQL += " xxxx "; ã®å½¢ã«ã™ã‚‹ã€‚
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SQLVSƒ\[ƒX‰»ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SQLVSã‚½ãƒ¼ã‚¹åŒ–ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsCnv.Fn_SQL_To_Code(txtFrom, txtTo, "sSQL += \"", "\";");
 
-            MessageBox.Show("Š®—¹I", "SQLVSƒ\[ƒX‰»", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("å®Œäº†ï¼", "SQLVSã‚½ãƒ¼ã‚¹åŒ–", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -48,11 +53,11 @@ namespace DEV01PG01
             this.Close();
         }
 
-        private void æ“ª1ƒXƒy[ƒXToolStripMenuItem_Click(object sender, EventArgs e)
+        private void å…ˆé ­1ã‚¹ãƒšãƒ¼ã‚¹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsCnv.Fn_LeftOnepace(txtFrom, txtTo);
 
-            MessageBox.Show("Š®—¹I", "æ“ª1ƒXƒy[ƒX", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("å®Œäº†ï¼", "å…ˆé ­1ã‚¹ãƒšãƒ¼ã‚¹", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void BtnResult_Click(object sender, EventArgs e)
@@ -67,11 +72,11 @@ namespace DEV01PG01
             txtTo.Text = "";
         }
 
-        private void sQL‹å‘å•¶š‰»ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sQLå¥å¤§æ–‡å­—åŒ–ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsCnv.Fn_CapitalLetter(txtFrom, txtTo);
 
-            MessageBox.Show("Š®—¹I", "SQL‹åA‘å•¶š‰»", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("å®Œäº†ï¼", "SQLå¥ã€å¤§æ–‡å­—åŒ–", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnSelAllUpper_Click(object sender, EventArgs e)
@@ -86,24 +91,24 @@ namespace DEV01PG01
             txtTo.SelectAll();
         }
 
-        private void ––”öORANDONToolStripMenuItem_Click(object sender, EventArgs e)
+        private void æœ«å°¾ORANDONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsCnv.Fn_CheckEndLetter(txtFrom, txtTo);
 
-            MessageBox.Show("Š®—¹I", "SQL‹åA––”öƒ`ƒFƒbƒN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("å®Œäº†ï¼", "SQLå¥ã€æœ«å°¾ãƒã‚§ãƒƒã‚¯", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void ‰üsƒR[ƒhœ‹ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void æ”¹è¡Œã‚³ãƒ¼ãƒ‰é™¤å»ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsCnv.RemoveCarrigeReturn(txtFrom, txtTo);
 
-            MessageBox.Show("Š®—¹I", "S‰üsƒR[ƒhAœ‹", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("å®Œäº†ï¼", "Sæ”¹è¡Œã‚³ãƒ¼ãƒ‰ã€é™¤å»", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void mndØ‚èü_Click(object sender, EventArgs e)
+        private void mnä»•åˆ‡ã‚Šç·š_Click(object sender, EventArgs e)
         {
             clsCnv.SeparateLine(txtFrom, txtTo);
-            MessageBox.Show("Š®—¹I", "ŠÖ”AdØ‚èü’Ç‰Á", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("å®Œäº†ï¼", "é–¢æ•°ã€ä»•åˆ‡ã‚Šç·šè¿½åŠ ", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
