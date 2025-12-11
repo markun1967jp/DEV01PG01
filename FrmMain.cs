@@ -1,5 +1,7 @@
 namespace DEV01PG01
 {
+    using System.Windows.Forms;
+
     public partial class FrmMain : Form
     {
         private ClsConvert clsCnv = new ClsConvert();
