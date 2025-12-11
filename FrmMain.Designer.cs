@@ -287,6 +287,7 @@
             // 
             // txtFrom
             // 
+            txtFrom.AcceptsTab = true;
             txtFrom.Dock = DockStyle.Fill;
             txtFrom.Font = new Font("BIZ UDゴシック", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
             txtFrom.Location = new Point(0, 0);
@@ -298,6 +299,7 @@
             // 
             // txtTo
             // 
+            txtTo.AcceptsTab = true;
             txtTo.Dock = DockStyle.Fill;
             txtTo.Font = new Font("BIZ UDゴシック", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
             txtTo.Location = new Point(0, 0);
