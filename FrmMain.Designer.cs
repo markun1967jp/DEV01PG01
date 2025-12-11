@@ -36,6 +36,7 @@
             sQL句大文字化ToolStripMenuItem = new ToolStripMenuItem();
             末尾ORANDONToolStripMenuItem = new ToolStripMenuItem();
             改行コード除去ToolStripMenuItem = new ToolStripMenuItem();
+            mn仕切り線 = new ToolStripMenuItem();
             panel1 = new Panel();
             btnTran = new Button();
             txtTranTo = new TextBox();
@@ -52,7 +53,6 @@
             splitContainer1 = new SplitContainer();
             txtFrom = new TextBox();
             txtTo = new TextBox();
-            mn仕切り線 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -67,7 +67,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { sQL関連ToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(784, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -113,6 +113,13 @@
             改行コード除去ToolStripMenuItem.Text = "05.改行コード、除去";
             改行コード除去ToolStripMenuItem.Click += 改行コード除去ToolStripMenuItem_Click;
             // 
+            // mn仕切り線
+            // 
+            mn仕切り線.Name = "mn仕切り線";
+            mn仕切り線.Size = new Size(189, 22);
+            mn仕切り線.Text = "06.仕切り線 ///---";
+            mn仕切り線.Click += mn仕切り線_Click;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(192, 255, 255);
@@ -124,7 +131,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 24);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 41);
+            panel1.Size = new Size(784, 41);
             panel1.TabIndex = 1;
             // 
             // btnTran
@@ -132,7 +139,7 @@
             btnTran.BackColor = Color.FromArgb(128, 255, 255);
             btnTran.FlatStyle = FlatStyle.Flat;
             btnTran.Font = new Font("BIZ UDゴシック", 9F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btnTran.Location = new Point(615, 11);
+            btnTran.Location = new Point(691, 10);
             btnTran.Name = "btnTran";
             btnTran.Size = new Size(52, 22);
             btnTran.TabIndex = 4;
@@ -143,16 +150,16 @@
             // txtTranTo
             // 
             txtTranTo.Font = new Font("BIZ UDゴシック", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            txtTranTo.Location = new Point(341, 12);
+            txtTranTo.Location = new Point(385, 12);
             txtTranTo.MaxLength = 100;
             txtTranTo.Name = "txtTranTo";
-            txtTranTo.Size = new Size(246, 20);
+            txtTranTo.Size = new Size(290, 20);
             txtTranTo.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(320, 14);
+            label2.Location = new Point(360, 14);
             label2.Name = "label2";
             label2.Size = new Size(15, 15);
             label2.TabIndex = 2;
@@ -164,7 +171,7 @@
             txtTranFrom.Location = new Point(58, 12);
             txtTranFrom.MaxLength = 100;
             txtTranFrom.Name = "txtTranFrom";
-            txtTranFrom.Size = new Size(256, 20);
+            txtTranFrom.Size = new Size(290, 20);
             txtTranFrom.TabIndex = 1;
             // 
             // label1
@@ -180,7 +187,7 @@
             // 
             statusStrip1.Location = new Point(0, 542);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.Size = new Size(784, 22);
             statusStrip1.TabIndex = 2;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -190,7 +197,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnClose, btnResult, btnCLR, btnSelAllUpper, btnSelAllBottom });
             toolStrip1.Location = new Point(0, 515);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(800, 27);
+            toolStrip1.Size = new Size(784, 27);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -274,44 +281,39 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(txtTo);
-            splitContainer1.Size = new Size(800, 450);
+            splitContainer1.Size = new Size(784, 450);
             splitContainer1.SplitterDistance = 223;
             splitContainer1.TabIndex = 4;
             // 
             // txtFrom
             // 
+            txtFrom.AcceptsTab = true;
             txtFrom.Dock = DockStyle.Fill;
             txtFrom.Font = new Font("BIZ UDゴシック", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
             txtFrom.Location = new Point(0, 0);
             txtFrom.Multiline = true;
             txtFrom.Name = "txtFrom";
             txtFrom.ScrollBars = ScrollBars.Both;
-            txtFrom.Size = new Size(800, 223);
+            txtFrom.Size = new Size(784, 223);
             txtFrom.TabIndex = 0;
             // 
             // txtTo
             // 
+            txtTo.AcceptsTab = true;
             txtTo.Dock = DockStyle.Fill;
             txtTo.Font = new Font("BIZ UDゴシック", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
             txtTo.Location = new Point(0, 0);
             txtTo.Multiline = true;
             txtTo.Name = "txtTo";
             txtTo.ScrollBars = ScrollBars.Both;
-            txtTo.Size = new Size(800, 223);
+            txtTo.Size = new Size(784, 223);
             txtTo.TabIndex = 1;
-            // 
-            // mn仕切り線
-            // 
-            mn仕切り線.Name = "mn仕切り線";
-            mn仕切り線.Size = new Size(189, 22);
-            mn仕切り線.Text = "06.仕切り線 ///---";
-            mn仕切り線.Click += mn仕切り線_Click;
             // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 564);
+            ClientSize = new Size(784, 564);
             Controls.Add(splitContainer1);
             Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);
@@ -319,6 +321,7 @@
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            MinimumSize = new Size(800, 603);
             Name = "FrmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "開発支援、各種文字変換";
