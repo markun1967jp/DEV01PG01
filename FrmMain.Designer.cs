@@ -296,6 +296,7 @@
             txtFrom.ScrollBars = ScrollBars.Both;
             txtFrom.Size = new Size(784, 223);
             txtFrom.TabIndex = 0;
+            txtFrom.KeyDown += txtFrom_KeyDown;
             // 
             // txtTo
             // 
@@ -308,6 +309,7 @@
             txtTo.ScrollBars = ScrollBars.Both;
             txtTo.Size = new Size(784, 223);
             txtTo.TabIndex = 1;
+            txtTo.KeyDown += txtTo_KeyDown;
             // 
             // FrmMain
             // 
