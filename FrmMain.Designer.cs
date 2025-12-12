@@ -37,6 +37,7 @@
             末尾ORANDONToolStripMenuItem = new ToolStripMenuItem();
             改行コード除去ToolStripMenuItem = new ToolStripMenuItem();
             mn仕切り線 = new ToolStripMenuItem();
+            mnログ出力フォルダ = new ToolStripMenuItem();
             panel1 = new Panel();
             btnTran = new Button();
             txtTranTo = new TextBox();
@@ -50,6 +51,7 @@
             btnCLR = new ToolStripButton();
             btnSelAllUpper = new ToolStripButton();
             btnSelAllBottom = new ToolStripButton();
+            btnLogOutput = new ToolStripButton();
             splitContainer1 = new SplitContainer();
             txtFrom = new TextBox();
             txtTo = new TextBox();
@@ -64,10 +66,10 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { sQL関連ToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { sQL関連ToolStripMenuItem, mnログ出力フォルダ });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(784, 24);
+            menuStrip1.Size = new Size(784, 25);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +77,7 @@
             // 
             sQL関連ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sQLVSソース化ToolStripMenuItem, 先頭1スペースToolStripMenuItem, sQL句大文字化ToolStripMenuItem, 末尾ORANDONToolStripMenuItem, 改行コード除去ToolStripMenuItem, mn仕切り線 });
             sQL関連ToolStripMenuItem.Name = "sQL関連ToolStripMenuItem";
-            sQL関連ToolStripMenuItem.Size = new Size(64, 20);
+            sQL関連ToolStripMenuItem.Size = new Size(64, 21);
             sQL関連ToolStripMenuItem.Text = "SQL関連";
             // 
             // sQLVSソース化ToolStripMenuItem
@@ -120,6 +122,15 @@
             mn仕切り線.Text = "06.仕切り線 ///---";
             mn仕切り線.Click += mn仕切り線_Click;
             // 
+            // mnログ出力フォルダ
+            // 
+            mnログ出力フォルダ.Font = new Font("游ゴシック", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 128);
+            mnログ出力フォルダ.ForeColor = Color.Blue;
+            mnログ出力フォルダ.Name = "mnログ出力フォルダ";
+            mnログ出力フォルダ.Size = new Size(136, 21);
+            mnログ出力フォルダ.Text = "ログ出力フォルダー";
+            mnログ出力フォルダ.Click += mnログ出力フォルダ_Click;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(192, 255, 255);
@@ -129,7 +140,7 @@
             panel1.Controls.Add(txtTranFrom);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 24);
+            panel1.Location = new Point(0, 25);
             panel1.Name = "panel1";
             panel1.Size = new Size(784, 41);
             panel1.TabIndex = 1;
@@ -194,7 +205,7 @@
             // toolStrip1
             // 
             toolStrip1.Dock = DockStyle.Bottom;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnClose, btnResult, btnCLR, btnSelAllUpper, btnSelAllBottom });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnClose, btnResult, btnCLR, btnSelAllUpper, btnSelAllBottom, btnLogOutput });
             toolStrip1.Location = new Point(0, 515);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(784, 27);
@@ -267,10 +278,21 @@
             btnSelAllBottom.Text = "↓全選択";
             btnSelAllBottom.Click += btnSelAllBottom_Click;
             // 
+            // btnLogOutput
+            // 
+            btnLogOutput.BackColor = Color.FromArgb(255, 224, 192);
+            btnLogOutput.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnLogOutput.Image = (Image)resources.GetObject("btnLogOutput.Image");
+            btnLogOutput.ImageTransparentColor = Color.Magenta;
+            btnLogOutput.Name = "btnLogOutput";
+            btnLogOutput.Size = new Size(65, 24);
+            btnLogOutput.Text = "↓ログ出力";
+            btnLogOutput.Click += btnLogOutput_Click;
+            // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 65);
+            splitContainer1.Location = new Point(0, 66);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
             // 
@@ -281,8 +303,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(txtTo);
-            splitContainer1.Size = new Size(784, 450);
-            splitContainer1.SplitterDistance = 223;
+            splitContainer1.Size = new Size(784, 449);
+            splitContainer1.SplitterDistance = 222;
             splitContainer1.TabIndex = 4;
             // 
             // txtFrom
@@ -294,7 +316,7 @@
             txtFrom.Multiline = true;
             txtFrom.Name = "txtFrom";
             txtFrom.ScrollBars = ScrollBars.Both;
-            txtFrom.Size = new Size(784, 223);
+            txtFrom.Size = new Size(784, 222);
             txtFrom.TabIndex = 0;
             txtFrom.KeyDown += txtFrom_KeyDown;
             // 
@@ -370,5 +392,7 @@
         private ToolStripMenuItem 末尾ORANDONToolStripMenuItem;
         private ToolStripMenuItem 改行コード除去ToolStripMenuItem;
         private ToolStripMenuItem mn仕切り線;
+        private ToolStripMenuItem mnログ出力フォルダ;
+        private ToolStripButton btnLogOutput;
     }
 }

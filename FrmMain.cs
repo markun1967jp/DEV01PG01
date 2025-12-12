@@ -1,6 +1,9 @@
 ﻿namespace DEV01PG01
 {
+    using System.Diagnostics;
+    using System.Text;
     using System.Windows.Forms;
+    using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
     public partial class FrmMain : Form
     {
@@ -118,7 +121,7 @@
             // Tab / Shift+Tab 以外はそのまま
             if (e.KeyCode != Keys.Tab) return;
 
-            var tb = (TextBox)sender!;
+            var tb = (System.Windows.Forms.TextBox)sender!;
             if (tb.SelectionLength == 0)
             {
                 // 選択なし → 通常のタブ挿入だけ行う場合は以下の1行でOK
@@ -207,7 +210,7 @@
             // Tab / Shift+Tab 以外はそのまま
             if (e.KeyCode != Keys.Tab) return;
 
-            var tb = (TextBox)sender!;
+            var tb = (System.Windows.Forms.TextBox)sender!;
             if (tb.SelectionLength == 0)
             {
                 // 選択なし → 通常のタブ挿入だけ行う場合は以下の1行でOK
@@ -290,7 +293,7 @@
         }
 
         // 指定行のテキスト（改行を除く）を取得
-        private static string GetLineText(TextBox tb, int lineIndex)
+        private static string GetLineText(System.Windows.Forms.TextBox tb, int lineIndex)
         {
             if (lineIndex < 0 || lineIndex >= tb.Lines.Length) return string.Empty;
             return tb.Lines[lineIndex];
@@ -302,6 +305,74 @@
             if (text.Contains("\r\n")) return "\r\n";
             if (text.Contains("\n")) return "\n";
             return "\r\n"; // デフォルト
+        }
+
+        private void btnLogOutput_Click(object sender, EventArgs e)
+        {
+            // txtTo.Text をログ出力
+            try
+            {
+                // 保存先フォルダ
+                string baseDir = @"C:\Temp\SQLログ";
+
+                // フォルダが無い場合は作成
+                Directory.CreateDirectory(baseDir);
+
+                // ファイル名（例：2025_12_12_084530.txt）
+                string fileName = DateTime.Now.ToString("yyyy_MM_dd_HHmmss") + ".txt";
+
+                // フルパス
+                string fullPath = Path.Combine(baseDir, fileName);
+
+                // TextBox の内容を UTF-8 で保存（BOMあり）
+                File.WriteAllText(fullPath, txtTo.Text, new UTF8Encoding(encoderShouldEmitUTF8Identifier: true));
+
+                MessageBox.Show($"保存しました：{fullPath}", "保存完了", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(
+                    "アクセス権限が無いため保存できませんでした。\n" + ex.Message,
+                    "保存エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(
+                    "ファイルの入出力エラーが発生しました。\n" + ex.Message,
+                    "保存エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "想定外のエラーが発生しました。\n" + ex.Message,
+                    "保存エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void mnログ出力フォルダ_Click(object sender, EventArgs e)
+        {
+
+            string baseDir = @"C:\Temp\SQLログ";
+
+            try
+            {
+                // フォルダが存在しない場合は作成
+                Directory.CreateDirectory(baseDir);
+
+                // エクスプローラーで開く
+                Process.Start(new ProcessStartInfo()
+                {
+                    FileName = baseDir,
+                    UseShellExecute = true // これが重要（.NET Core / .NET 5+）
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"フォルダを開けませんでした。\n{ex.Message}",
+                                "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
